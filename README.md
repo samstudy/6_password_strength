@@ -6,9 +6,9 @@
 ### Usage
 
 
-- Run the script like ** python password_strength.py **
+- Run the script like **python password_strength.py**
 - After you should input your password to find out it's strenght
-**Notify:1--weak....,10-the strongest**
+  -**Notify:1--weak....,10-the strongest**
 
 
 ### Requirement
