@@ -1,37 +1,41 @@
 import re
 
-def check_password_uppercase(password):
-    upper_case = len(re.findall(r'[A-Z]',password))
-    if upper_case == 1:
+def estimate_weight(password):
+    weight = len(password)
+    if weight == 1:
         return 1
-    if upper_case > 1:
+    if weight > 1:
         return 2
+    else:
+        return 0
+
+def check_password_uppercase(password):
+    upper_case = re.findall(r'[A-Z]',password)
+    return estimate_weight(upper_case)
+
+
+def check_password_digit(password):
+    digits = re.findall(r'[0-9]',password)
+    return estimate_weight(digits)
+
+def check_password_symbol(password):
+    symbol = re.findall(r'[!#$%&():*+,-./[\\\]^_`{|}~]',password)
+    return estimate_weight(symbol)
+
 
 def check_password_lowercase(password):
-    lower_case = len(re.findall(r'[a-z]',password)) 
-    if lower_case == 1:
-        return 1
-    if lower_case > 1 :
-        return 2 
+    lower_case = re.findall(r'[a-z]',password)
+    return estimate_weight(lower_case) 
+
 
 def check_password_length(password):
     if len(password) > 6:
         return 1
     if len(password) > 12:
         return 2
+    else:
+        return 0
 
-def check_password_digit(password):
-    digits = len(re.findall(r'[0-9]',password))
-    if digits == 2:
-        return 1
-    if digits > 2:
-        return 2
-def check_password_symbol(password):
-    symbol = len(re.findall(r'[!#$%&():*+,-./[\\\]^_`{|}~]',password))
-    if symbol == 1:
-        return 1
-    if symbol > 2:
-        return 2
 
 def get_password_strenght(password):
     count_lower_case = check_password_lowercase(password)
@@ -39,8 +43,8 @@ def get_password_strenght(password):
     count_length = check_password_length(password)
     count_digits = check_password_digit(password)
     count_symbols = check_password_symbol(password)
-    strength = count_upper_case + count_lower_case + count_length + count_digits + count_symbols
-    return strength
+    return  count_upper_case + count_lower_case + count_length + count_digits + count_symbols
+    
         
 
 if __name__ == '__main__':
