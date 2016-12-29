@@ -1,5 +1,4 @@
-![PSWD](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiB1Pnj2pnRAhUMDywKHci8AKIQjRwIBw&url=http%3A%2F%2Fwww.etny.net%2Fsecure_passwords&psig=AFQjCNEnrGW-4Nu8VSCgQmQGfRRQpPeqgA&ust=1483111411999492)
-
+![security](https://cloud.githubusercontent.com/assets/22424468/21547035/b52382e0-ce0d-11e6-87fd-7172ee3d4fe6.gif)
 # 6_password_strength
 
 
