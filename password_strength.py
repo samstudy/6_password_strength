@@ -1,14 +1,32 @@
 import re
 
-def estimate_weight(password):
-    weight = len(password)
-    if weight == 1:
-        return 1
-    if weight > 1:
-        return 2
-    else:
-        return 0
 
+def estimate_weight(password):
+    weight = ''.join(password)
+    count = len(weight)
+    if weight.islower():
+        if count == 3:
+            return 1
+        if count > 3:
+            return 2
+        else:
+            return 0
+    if weight.isupper():
+        if count == 3:
+            return 1
+        if count > 3:
+            return 2
+        else:
+            return 0
+    else:
+        if count == 1:
+            return 1
+        if count > 1:
+            return 2
+        else:
+           return 0
+
+        
 def check_password_uppercase(password):
     upper_case = re.findall(r'[A-Z]',password)
     return estimate_weight(upper_case)
@@ -44,6 +62,7 @@ def get_password_strenght(password):
     count_digits = check_password_digit(password)
     count_symbols = check_password_symbol(password)
     return  count_upper_case + count_lower_case + count_length + count_digits + count_symbols
+    
     
         
 
