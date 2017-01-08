@@ -1,4 +1,6 @@
 import re
+import getpass
+
 
 def count_password_strenght(password):
     strength = 0
@@ -33,26 +35,25 @@ def check_password_digit(password):
 
 def check_password_upper_case(password):
     if re.search(r'[A-Z]',password):
-        if len(password) >2:
-            return True
-        else:
-            return False
-
+        return len(password) > 2
+            
 
 def check_password_lower_case(password):
     if re.search(r'[a-z]',password):
-        if len(password) >2:
-            return True
-        else:
-            return False
-
+        return len(password) > 2
+            
 
 def check_password_symbol(password):
     if re.search(r'[!#$%&():*+,-./[\\\]^_`{|}~]',password):
         return True
 
+def get_user_password():
+    pswd=getpass.getpass('Insert your password: ') 
+    return pswd
+
+
 
 if __name__ == '__main__':
     print('Now we will estimate your password\'s strength,1--weak... 10--strongest')
-    password = input('Please input your password:')
+    password = get_user_password()
     print('Your password\'s strength is',get_password_strenght(password))
